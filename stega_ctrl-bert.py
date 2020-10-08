@@ -74,7 +74,7 @@ def main():
 	# ======================
 	# 隐写
 	# ======================
-	os.makedirs('stego2/', exist_ok=True)
+	os.makedirs('stego/', exist_ok=True)
 	# read bit streams
 	with open('bit_stream/bit_stream.txt', 'r', encoding='utf8') as f:
 		bit_stream = f.read().strip()
@@ -150,17 +150,17 @@ def main():
 			stega_times.append((end_time - start_time).total_seconds())
 
 		# write files
-		with open('stego2/' + '_'.join(control_codes) + '.txt', 'w', encoding='utf8') as f:
+		with open('stego/' + '_'.join(control_codes) + '.txt', 'w', encoding='utf8') as f:
 			for sentence in stega_text:
 				f.write("\n=== GENERATED SEQUENCE ===\n")
 				f.write(sentence)
-		with open('stego2/' + '_'.join(control_codes) + '.bit', 'w', encoding='utf8') as f:
+		with open('stego/' + '_'.join(control_codes) + '.bit', 'w', encoding='utf8') as f:
 			for bits in stega_bits:
 				f.write(bits + '\n')
-		with open('stego2/' + '_'.join(control_codes) + '.count', 'w', encoding='utf8') as f:
+		with open('stego/' + '_'.join(control_codes) + '.count', 'w', encoding='utf8') as f:
 			for count in stega_counts:
 				f.write(str(count) + '\n')
-		with open('stego2/' + '_'.join(control_codes) + '.time', 'w', encoding='utf8') as f:
+		with open('stego/' + '_'.join(control_codes) + '.time', 'w', encoding='utf8') as f:
 			for time in stega_times:
 				f.write(str(time) + '\n')
 
