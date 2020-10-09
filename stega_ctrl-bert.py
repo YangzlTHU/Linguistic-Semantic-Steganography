@@ -96,6 +96,8 @@ def main():
 		stega_times = []
 
 		for _ in range(GENERATE_NUM):
+			if device == 'cuda':
+				torch.cuda.synchronize()
 			start_time = datetime.datetime.now()
 			stega_count = 0
 			# read secret messages
@@ -146,6 +148,8 @@ def main():
 					print('generate:' + control_code)
 					print('get:     ' + control_codes[int(torch.argmax(y))])
 
+			if device == 'cuda':
+				torch.cuda.synchronize()
 			end_time = datetime.datetime.now()
 			stega_times.append((end_time - start_time).total_seconds())
 
