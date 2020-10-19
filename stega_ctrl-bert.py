@@ -170,10 +170,10 @@ def main():
 
 		print('count')
 		print(np.mean(stega_counts))
-		print(np.std(stega_counts))
+		print(np.std(stega_counts, ddof=1))
 		print('time')
 		print(np.mean(stega_times))
-		print(np.std(stega_times))
+		print(np.std(stega_times, ddof=1))
 
 
 if __name__ == '__main__':
